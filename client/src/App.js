@@ -1,3 +1,4 @@
+import Login from "./Componets/Login"
 import About from "./Componets/About";
 import Merch from "./Componets/Merch";
 import Home from "./Componets/Home"
@@ -10,9 +11,18 @@ function App(){
       <Navbar />
       <div className="container">
           <Switch>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/merch" element={<Merch />} />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/">
+            <Home />
+            </Route>
+            <Route exact path="/merch">
+            <Merch />
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
           </Switch>
       </div>
     </>
@@ -20,4 +30,4 @@ function App(){
 }
 
 
-export default App;
+export default App
