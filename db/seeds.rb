@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "seeding..."
+
+puts "seeding items"
+  shirt1 = Item.create(name:shirt1, image:"https://i.imgur.com/DixTe0S.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
+  shirt2 = Item.create(name:shirt2, image:"https://i.imgur.com/oA2g9LH.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
+  shirt3 = Item.create(name:shirt3, image:"https://i.imgur.com/Fhd62Qf.jpeg",  size:"S,M,L,XL,XXL" , price:25.00)
+  shirt4 = Item.create(name:shirt4, image:"https://i.imgur.com/YoLn1CG.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
+  shirt5 = Item.create(name:shirt5, image:"https://i.imgur.com/iUc222J.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
+  hoody1 = Item.create(name:hoody1, image:"https://i.imgur.com/aWBcW6z.jpeg" , size:"S,M,L,XL,XXL" , price:50.00)
+
+puts "seeding user"
+  User.create(name:"Ray", password:"123")
+
+
+puts "creating band members"
+  jacob = Band.create(name:"Jacob Maestas" , image:"https://i.imgur.com/Ot3QU9f.jpeg" , instrument:"Guitar/vocals/synth")
+  ben = Band.create(name:"Ben Eberle" , image:"https://i.imgur.com/JcQKySV.jpeg " , instrument:"Bass/Vocals/Guitar")
+  bo = Band.create(name:"Bo Brooks" , image:"https://i.imgur.com/80PZUX1.jpeg " , instrument:"Sax/Vocals/synth")
+  diego = Band.create(name:"Diego Lucero" , image:"https://i.imgur.com/kHzirQv.jpeg " , instrument:"Drums")
+  e = Band.create(name:"E Lyon Xavier" , image:"https://i.imgur.com/WIXbNxo.jpeg " , instrument:"Percussion")
+  peter = Band.create(name:"Peter Koschnitzke" , image:"https://i.imgur.com/6f1vlzW.jpeg" , instrument:"Guitar")
+
+  puts "done seeding"
