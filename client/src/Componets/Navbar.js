@@ -5,8 +5,7 @@ export default function Navbar(){
     <Link to="/" className="site-title">TongueByte</Link>
     <ul>
       <CustomLink to="/cart">Cart</CustomLink>
-      <CustomLink to="/about">About</CustomLink>
-      <CustomLink to="/login">Login</CustomLink>
+      <CustomLink to="/merch">Merch</CustomLink>
     </ul>
   </nav>
 }

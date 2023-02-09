@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
+import Merch from "./Componets/Merch"
 import Login from "./Componets/LoginForm"
-import About from "./Componets/About";
 import Cart from "./Componets/Cart";
 import Home from "./Componets/Home"
 import Navbar from "./Componets/Navbar";
@@ -31,12 +31,12 @@ function App(){
             <Route exact path="/cart">
             <Cart />
             </Route>
-            <Route exact path="/about">
-              <About />
+            <Route exact path="/merch">
+            <Merch />
             </Route>
-          <Route exact path="/login">
+            <Route exact path="/login">
             <Login />
-          </Route>
+            </Route>
           </Switch>
       </div>
     </>
