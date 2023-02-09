@@ -1,12 +1,12 @@
 puts "seeding..."
 
 puts "seeding items"
-  shirt1 = Item.create(name:"Asphyxia", image:"https://i.imgur.com/DixTe0S.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
-  shirt2 = Item.create(name:"Same old Nic", image:"https://i.imgur.com/oA2g9LH.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
-  shirt3 = Item.create(name:"Heart in a Glass Jar", image:"https://i.imgur.com/Fhd62Qf.jpeg",  size:"S,M,L,XL,XXL" , price:25.00)
-  shirt4 = Item.create(name:"Great Gig", image:"https://i.imgur.com/YoLn1CG.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
-  shirt5 = Item.create(name:"Awesom", image:"https://i.imgur.com/iUc222J.jpeg" , size:"S,M,L,XL,XXL" , price:25.00)
-  hoody1 = Item.create(name:"White Rabbit", image:"https://i.imgur.com/aWBcW6z.jpeg" , size:"S,M,L,XL,XXL" , price:50.00)
+  shirt1 = Item.create(name:"Asphyxia", image:"https://i.imgur.com/DixTe0S.jpeg" , size:"S,M,L,XL,XXL" , price:25)
+  shirt2 = Item.create(name:"Same old Nic", image:"https://i.imgur.com/oA2g9LH.jpeg" , size:"S,M,L,XL,XXL" , price:25)
+  shirt3 = Item.create(name:"Heart in a Glass Jar", image:"https://i.imgur.com/Fhd62Qf.jpeg",  size:"S,M,L,XL,XXL" , price:25)
+  shirt4 = Item.create(name:"Great Gig", image:"https://i.imgur.com/YoLn1CG.jpeg" , size:"S,M,L,XL,XXL" , price:25)
+  shirt5 = Item.create(name:"Awesom", image:"https://i.imgur.com/iUc222J.jpeg" , size:"S,M,L,XL,XXL" , price:25)
+  hoody1 = Item.create(name:"White Rabbit", image:"https://i.imgur.com/aWBcW6z.jpeg" , size:"S,M,L,XL,XXL" , price:50)
 
 puts "seeding user"
   User.create(name:"Ray", password:"123")

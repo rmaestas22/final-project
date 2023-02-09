@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image
       t.string :size
-      t.decimal :price, precision: 5, scale: 2
+      t.integer:price
 
       t.timestamps
     end
