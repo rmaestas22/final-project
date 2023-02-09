@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  skip_before_action :authorize, only: :create
+skip_before_action :authorize, only: :create
     wrap_parameters format: []
 
 

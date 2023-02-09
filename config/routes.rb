@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :bands
   resources :orderables
   resources :carts
+  get "/me", to: "users#show"
+  post "login", to: "sessions#create"
   get 'cart', to: 'cart#show'
   post 'cart/add'
   post 'cart/remove'
-  
+
 
 
   get '*path',

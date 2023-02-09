@@ -1,3 +1,3 @@
 export default function About() {
-  return <h1>Merch</h1>
+  return <h1>Cart</h1>
 }

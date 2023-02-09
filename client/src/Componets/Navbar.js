@@ -4,7 +4,7 @@ export default function Navbar(){
   return <nav className="nav">
     <Link to="/" className="site-title">TongueByte</Link>
     <ul>
-      <CustomLink to="/merch">Merch</CustomLink>
+      <CustomLink to="/cart">Cart</CustomLink>
       <CustomLink to="/about">About</CustomLink>
       <CustomLink to="/login">Login</CustomLink>
     </ul>
