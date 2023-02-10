@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function SignUpForm({ onLogin }) {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
 
@@ -11,7 +11,7 @@ function SignUpForm({ onLogin }) {
     fetch("/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ name, password }),
     }).then((r) => {
       setLoading(false);
       if (r.ok) {
@@ -24,10 +24,11 @@ function SignUpForm({ onLogin }) {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label><b>Username</b></label>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} ></input>
+      <label><b>name</b></label>
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
       <label><b>Password</b></label>
       <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+      <br></br>
       <button>{isLoading ? "Loading..." : "Sign Up"}</button>
     </form>
   )

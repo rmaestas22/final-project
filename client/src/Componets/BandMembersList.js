@@ -1,10 +1,10 @@
 import React from "react";
-import Home from "./Merch";
+
 import { useEffect, useState } from "react";
-import { useParams } from "react-router"
+
 import BandCard from "./BandCard";
 
-function BandList({ setCurrentBandID }) {
+function BandMembersList({ setCurrentBandID }) {
   const [band, setBands] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ function BandList({ setCurrentBandID }) {
   );
 }
 
-export default BandList;
+export default BandMembersList;

@@ -8,8 +8,8 @@ puts "seeding items"
   shirt5 = Item.create(name:"Awesom", image:"https://i.imgur.com/iUc222J.jpeg" , size:"S,M,L,XL,XXL" , price:25)
   hoody1 = Item.create(name:"White Rabbit", image:"https://i.imgur.com/aWBcW6z.jpeg" , size:"S,M,L,XL,XXL" , price:50)
 
-puts "seeding user"
-  User.create(name:"Ray", password:"123")
+# puts "seeding user"
+#   User.create(name:"Ray", password:"123")
 
 
 puts "creating band members"

@@ -7,8 +7,8 @@ function BandCard({band }) {
   return (
     <div className="card">
       <h2>{name}</h2>
+      <h2>{instrument}</h2>
       <img src={image} alt={name} className="band-image" />
-      <p>{instrument} Instrument </p>
     </div>
   );
 }

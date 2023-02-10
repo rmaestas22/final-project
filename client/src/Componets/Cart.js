@@ -1,3 +1,13 @@
-export default function About() {
-  return <h1>Cart</h1>
+import React from 'react'
+import MerchCard from "./MerchCard";
+
+function Cart(){
+  // console.log(merch)
+  return (
+    <section>
+      {}
+    </section>
+  )
 }
+
+export default Cart

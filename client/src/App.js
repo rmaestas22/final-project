@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import Merch from "./Componets/Merch"
-import Login from "./Componets/LoginForm"
+import Login from "./Componets/Login"
 import Cart from "./Componets/Cart";
-import Home from "./Componets/Home"
 import Navbar from "./Componets/Navbar";
 import { Switch, Route, } from 'react-router-dom'
+import BandMembersList from './Componets/BandMembersList';
 
 
 function App(){
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/").then((r) => {
+    fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
       }
@@ -21,12 +21,12 @@ function App(){
   if (!user) return <Login onLogin={setUser} />
 
   return(
-    <>
-      <Navbar />
-      <div className="container">
+    <div>
+      <Navbar user={user} setUser={setUser} />
+
           <Switch>
             <Route exact path="/">
-            <Home />
+            <BandMembersList />
             </Route>
             <Route exact path="/cart">
             <Cart />
@@ -34,12 +34,9 @@ function App(){
             <Route exact path="/merch">
             <Merch />
             </Route>
-            <Route exact path="/login">
-            <Login />
-            </Route>
           </Switch>
-      </div>
-    </>
+
+    </div>
   )
 }
 

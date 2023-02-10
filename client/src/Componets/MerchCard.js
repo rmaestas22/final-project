@@ -1,6 +1,6 @@
 import React from "react";
 
-function MerchCard({ merch }) {
+function MerchCard({ merch, handleClick }) {
   const { name, image, size, price } = merch;
 
 
@@ -10,6 +10,7 @@ function MerchCard({ merch }) {
       <h2>{name}</h2>
       <h2>{size}</h2>
       <h2>{price}</h2>
+      <button onClick={()=>handleClick(merch)}>Add to Cart</button>
     </div>
   );
 }
