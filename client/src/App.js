@@ -1,10 +1,11 @@
+import Header from "./componets/Header"
+import './/App.css'
+import { BrowserRouter, Route } from "react-router-dom"
+import Item from "./componets/Item"
+import Cart from "./componets/Cart"
+import Login from "./componets/Login"
+import Band from "./componets/Band"
 import { useState, useEffect } from 'react';
-import Merch from "./Componets/Merch"
-import Login from "./Componets/Login"
-import Cart from "./Componets/Cart";
-import Navbar from "./Componets/Navbar";
-import { Switch, Route, } from 'react-router-dom'
-import BandMembersList from './Componets/BandMembersList';
 
 
 function App(){
@@ -20,23 +21,23 @@ function App(){
 
   if (!user) return <Login onLogin={setUser} />
 
+
+
   return(
-    <div>
-      <Navbar user={user} setUser={setUser} />
-
-          <Switch>
-            <Route exact path="/">
-            <BandMembersList />
-            </Route>
-            <Route exact path="/cart">
-            <Cart />
-            </Route>
-            <Route exact path="/merch">
-            <Merch />
-            </Route>
-          </Switch>
-
-    </div>
+    <BrowserRouter>
+      <Header user={user} setUser={setUser} />
+      <div className="App">
+        <Route path="/" exact>
+          <Band />
+        </Route>
+        <Route path="/cart" exact>
+          <Cart />
+        </Route>
+        <Route path="/item" exact>
+          <Item />
+        </Route>
+      </div>
+    </BrowserRouter>
   )
 }
 

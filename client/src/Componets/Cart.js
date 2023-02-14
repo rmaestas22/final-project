@@ -1,12 +1,9 @@
-import React from 'react'
-import MerchCard from "./MerchCard";
 
-function Cart(){
-  // console.log(merch)
+import React from 'react'
+
+const Cart = () => {
   return (
-    <section>
-      {}
-    </section>
+    <div>Cart</div>
   )
 }
 

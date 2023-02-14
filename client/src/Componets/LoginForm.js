@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function LoginForm({ onLogin }) {
-  const [ name, setName ] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
 
@@ -25,7 +25,7 @@ function LoginForm({ onLogin }) {
   return (
     <form onSubmit={handleSubmit}>
       <label><b>name</b></label>
-      <input type="text" value={ name } onChange={(e) => setName(e.target.value)}></input>
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
       <label><b>Password</b></label>
       <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
       <br></br>

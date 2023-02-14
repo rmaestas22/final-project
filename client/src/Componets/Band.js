@@ -3,8 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import BandCard from "./BandCard";
-
-function BandMembersList({ setCurrentBandID }) {
+// removed prop from function { setCurrentBandID }
+function Band() {
   const [band, setBands] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,12 @@ function BandMembersList({ setCurrentBandID }) {
   }, []);
 
 
-
+// if (!band){
+//   return( <div>
+//     <h2> Loading </h2>
+//   </div>
+//   )
+// }
 
 
   return (
@@ -34,4 +39,4 @@ function BandMembersList({ setCurrentBandID }) {
   );
 }
 
-export default BandMembersList;
+export default Band;

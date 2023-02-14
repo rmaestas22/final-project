@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import MerchCard from "./MerchCard";
+import ItemCard from "./ItemCard";
 
-function MerchList({ setCurrentMerchID }) {
-  const [merch, setMerch] = useState([]);
+function Item({ setCurrentMerchID }) {
+  const [item, setMerch] = useState([]);
 
   useEffect(() => {
     fetch("/items")
@@ -15,11 +15,11 @@ function MerchList({ setCurrentMerchID }) {
 
   return (
     <ul className="cards">
-      {merch.map((merch) => {
+      {item?.map((item) => {
         return (
-          <MerchCard
-            key={merch.id}
-            merch={merch}
+          <ItemCard
+            key={item.id}
+            item={item}
           />
         );
       })}
@@ -32,4 +32,4 @@ function MerchList({ setCurrentMerchID }) {
 
 
 
-export default MerchList
+export default Item
