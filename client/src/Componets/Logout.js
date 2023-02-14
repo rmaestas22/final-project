@@ -9,6 +9,7 @@ function handleLogout(user, setUser) {
         setUser(null);
       }
     })
+    console.log(user)
 
   return (
     <button onClick={handleLogout}>Logout</button>

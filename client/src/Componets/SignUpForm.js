@@ -17,8 +17,22 @@ function SignUpForm({ onLogin }) {
     }).then((r) => {
       setLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user))
-        history.push("/")
+        r.json().then((user) => {
+          fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, password }),
+          }).then((r) => {
+            setLoading(false);
+            if (r.ok) {
+              r.json().then((user) => onLogin(user))
+            }
+            else {
+              r.json().then((err) => console.log(err))
+            }
+          })
+        })
+        //history.push("/")
       }
       else {
         r.json().then((err) => console.log(err))
