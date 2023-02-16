@@ -23,7 +23,7 @@ function ItemCard({ item, onAddToCart, onRemoveFromCart }) {
 
     function handleCartChange() {
       setInCart((inCart) => !inCart);
-      fetch(`/items/${id}`, {
+      fetch(`/cart/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
