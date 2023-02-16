@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :products
+  has_many :items
+  has_many :carts
 
-  # belongs_to :item
 
   has_secure_password
 end

@@ -1,5 +1,8 @@
 puts "seeding..."
 
+puts 'seeding users'
+User.create(name: 'ray', password: '123')
+
 puts "seeding items"
   shirt1 = Item.create(name:"Asphyxia", image:"https://i.imgur.com/DixTe0S.jpeg" , size:"S,M,L,XL,XXL" , price:25)
   shirt2 = Item.create(name:"Same old Nic", image:"https://i.imgur.com/oA2g9LH.jpeg" , size:"S,M,L,XL,XXL" , price:25)
@@ -20,4 +23,18 @@ puts "creating band members"
   e = Band.create(name:"E Lyon Xavier" , image:"https://i.imgur.com/WIXbNxo.jpeg " , instrument:"Percussion")
   peter = Band.create(name:"Peter Koschnitzke" , image:"https://i.imgur.com/6f1vlzW.jpeg" , instrument:"Guitar")
 
+
+puts 'seeding carts'
+
+Cart.create([
+  {
+    user_id: User.ids.sample
+  },
+    {
+    user_id: User.ids.sample
+  },
+    {
+    user_id: User.ids.sample
+  },
+])
   puts "done seeding"

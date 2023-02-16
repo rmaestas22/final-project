@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, createCart }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -15,7 +15,10 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user))
+        r.json().then((user) => {
+          onLogin(user)
+          createCart(user)
+        })
       }
       else {
         r.json().then((err) => console.log(err))

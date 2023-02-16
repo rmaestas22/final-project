@@ -1,11 +1,11 @@
 import  { useState} from 'react';
-import {useHistory} from "react-router-dom"
+// import {useHistory} from "react-router-dom"
 
 function SignUpForm({ onLogin }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
-  let history = useHistory();
+  // let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();

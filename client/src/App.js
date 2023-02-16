@@ -1,15 +1,43 @@
+import React, { useState, useEffect } from 'react'
 import Header from "./componets/Header"
-import './/App.css'
-import { BrowserRouter, Route } from "react-router-dom"
-import Item from "./componets/Item"
 import Cart from "./componets/Cart"
+import { Route, BrowserRouter } from "react-router-dom";
+import './/App.css'
 import Login from "./componets/Login"
 import Band from "./componets/Band"
-import { useState, useEffect } from 'react';
+import SignUpForm from "./componets/SignUpForm"
+import Item from './componets/Item';
+
 
 
 function App(){
   const [user, setUser] = useState(null);
+  const [items, setItems] = useState([]);
+
+
+  function handleAddToCart(addItemToCart) {
+    const itemsInCart = items.map((item) => {
+      if (item.id === addItemToCart.id) {
+        return addItemToCart;
+      } else {
+        return item;
+      }
+    })
+    setItems(itemsInCart);
+  }
+
+  function handleRemoveCart(removeItemFromCart) {
+    const removeItem = items.filter((item) => item.id !== removeItemFromCart.id);
+    setItems(removeItem)
+
+  }
+
+
+  useEffect(() => {
+    fetch('/items')
+      .then((r) => r.json())
+      .then((items) => setItems(items))
+  }, [])
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -23,20 +51,39 @@ function App(){
 
 
 
+
+
+
+
+
+
+
+
   return(
     <BrowserRouter>
+
       <Header user={user} setUser={setUser} />
+
       <div className="App">
         <Route path="/" exact>
           <Band />
         </Route>
+
         <Route path="/cart" exact>
-          <Cart />
+          <Cart items={items}
+            onRemoveFromCart={handleRemoveCart} onAddToCart={handleAddToCart} />
         </Route>
+
         <Route path="/item" exact>
-          <Item />
+          <Item onAddToCart={handleAddToCart} />
         </Route>
+
+        <Route path="/me" exact>
+          < SignUpForm />
+        </Route>
+
       </div>
+
     </BrowserRouter>
   )
 }
