@@ -7,6 +7,7 @@ import Login from "./componets/Login"
 import Band from "./componets/Band"
 import SignUpForm from "./componets/SignUpForm"
 import Item from './componets/Item';
+import {ItemsProvider} from './context/ItemsProvider';
 
 
 
@@ -16,7 +17,7 @@ function App(){
 
 
   function handleAddToCart(addItemToCart) {
-    const itemsInCart = items.map((item) => {
+    const itemsInCart = items?.map((item) => {
       if (item.id === addItemToCart.id) {
         return addItemToCart;
       } else {
@@ -65,23 +66,24 @@ function App(){
       <Header user={user} setUser={setUser} />
 
       <div className="App">
-        <Route path="/" exact>
-          <Band />
-        </Route>
+        <ItemsProvider>
+          <Route path="/" exact>
+            <Band />
+          </Route>
 
-        <Route path="/cart" exact>
-          <Cart items={items}
-            onRemoveFromCart={handleRemoveCart} onAddToCart={handleAddToCart} />
-        </Route>
+          <Route path="/cart" exact>
+            <Cart items={items}
+              onRemoveFromCart={handleRemoveCart} onAddToCart={handleAddToCart} />
+          </Route>
 
-        <Route path="/item" exact>
-          <Item onAddToCart={handleAddToCart} />
-        </Route>
+          <Route path="/item" exact>
+            <Item onAddToCart={handleAddToCart} />
+          </Route>
 
-        <Route path="/me" exact>
-          < SignUpForm />
-        </Route>
-
+          <Route path="/me" exact>
+            < SignUpForm />
+          </Route>
+        </ItemsProvider>
       </div>
 
     </BrowserRouter>
