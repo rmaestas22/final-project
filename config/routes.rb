@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   get '/cart', to: 'carts#index'
   post '/cart', to: 'carts#create'
+  get '/cart/:id', to: 'carts#show'
 
   # post 'orderable/add'
   delete 'orderable/remove'

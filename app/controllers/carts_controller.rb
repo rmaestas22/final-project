@@ -16,6 +16,18 @@ class CartsController < ApplicationController
       render json: cart, status: :created
     end
 
+    def show
+        cart = Cart.find(params[:id])
+        render json: cart, status: :ok
+    end
+
+    def destroy
+        cart = Cart.find(params[:id])
+        Review.where(cart_id:cart.id).destroy_all
+        cart.destroy
+        head :no_content
+    end
+
   # def add
   #   @item = Item.find_by(:id:params[:id])
   #   quantity = params[:quantity].to_i
