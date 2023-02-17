@@ -1,7 +1,7 @@
 import  { useState} from 'react';
 // import {useHistory} from "react-router-dom"
 
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onLogin, createCart }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -25,7 +25,10 @@ function SignUpForm({ onLogin }) {
           }).then((r) => {
             setLoading(false);
             if (r.ok) {
-              r.json().then((user) => onLogin(user))
+              r.json().then((user) => {
+                onLogin(user)
+                createCart(user)
+              })
             }
             else {
               r.json().then((err) => console.log(err))

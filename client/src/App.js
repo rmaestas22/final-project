@@ -7,7 +7,6 @@ import Login from "./componets/Login"
 import Band from "./componets/Band"
 import SignUpForm from "./componets/SignUpForm"
 import Item from './componets/Item';
-import {ItemsProvider} from './context/ItemsProvider';
 
 
 
@@ -66,7 +65,6 @@ function App(){
       <Header user={user} setUser={setUser} />
 
       <div className="App">
-        <ItemsProvider>
           <Route path="/" exact>
             <Band />
           </Route>
@@ -83,7 +81,6 @@ function App(){
           <Route path="/me" exact>
             < SignUpForm />
           </Route>
-        </ItemsProvider>
       </div>
 
     </BrowserRouter>

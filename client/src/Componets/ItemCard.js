@@ -1,37 +1,35 @@
 import React, { useState } from "react";
+import useCartStore from "../hooks/cartStore"
+
 
 
 function ItemCard({ item, onAddToCart, onRemoveFromCart }) {
-  const {id, name, image, size, price, cart } = item;
+  const {id, name, image, size, price } = item;
   const [inCart, setInCart] = useState(false);
+  const { cart } = useCartStore()
+
+  console.log(cart)
 
 
 
 
-  // fetch(`/orderables`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     cart_id:
-  //     item_id: item.id,
-  //     quantity: 1
-  //   })
-  // })
+
 
 
     function handleCartChange() {
       setInCart((inCart) => !inCart);
-      fetch(`/cart/${id}`, {
+      fetch(`/orderables`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ cart: !cart })
-      })
-        .then((r) => r.json())
-        .then((addedToCart) => setInCart ? onAddToCart(addedToCart) : onRemoveFromCart(addedToCart))
+        body: JSON.stringify({
+          cart_id: cart,
+          item_id: id,
+          quantity: 1
+        })
+      }).then(response => response.json())
+      .then(data => console.log(data))
     }
 
     return (
@@ -66,3 +64,14 @@ function ItemCard({ item, onAddToCart, onRemoveFromCart }) {
 }
 
 export default ItemCard;
+
+
+// fetch(`/items/${id}}`, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({ cart: !cart })
+// })
+//   .then((r) => r.json())
+//   .then((addedToCart) => setInCart ? onAddToCart(addedToCart) : onRemoveFromCart(addedToCart))

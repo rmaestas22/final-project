@@ -1,10 +1,13 @@
 import { useState } from "react";
 import SignUpForm from "./SignUpForm";
 import LoginForm from "./LoginForm";
+import useCartStore from "../hooks/cartStore"
 
 
 function Login({ onLogin }) {
   const [show, setShow] = useState(true);
+
+  const { setCart } = useCartStore()
 
   function createCart(user){
     fetch(`/cart`, {
@@ -17,7 +20,9 @@ function Login({ onLogin }) {
       })
     })
     .then(data => data.json())
-    .then(data => console.log(data))
+      .then(cart => {
+        setCart(cart.id)
+      })
   }
   return (
     show ? (
